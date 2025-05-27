@@ -67,23 +67,38 @@ public class TechTreeManager extends Mod {
 
             dialog.cont.button("Close", dialog::hide).size(150f, 50f);
 
-//            dialog.show();
-
             Vars.ui.menufrag.addButton("Tech Tree Manager", dialog::show);
+
+            int[] lastWidth = {Core.graphics.getWidth()};
+            dialog.cont.update(() -> {
+                int currentWidth = Core.graphics.getWidth();
+                if (currentWidth != lastWidth[0]) {
+                    lastWidth[0] = currentWidth;
+                    if (tabs.getCheckedIndex() == 0) {
+                        firstTab.run();
+                    } else {
+                        secondTab.run();
+                    }
+                }
+            });
         });
     }
-
-
 
     @Override
     public void loadContent() {
         Log.info("Loading content.");
     }
-
     private void populateTree(Table contentArea, Seq<TechTree.TechNode> nodes) {
         contentArea.clear();
 
         contentArea.pane(table -> {
+            table.top().left();
+            table.defaults().growX().height(50f).pad(4);
+            int screenWidth = Core.graphics.getWidth();
+            int itemsPerRow = screenWidth > 1600 ? 4 : screenWidth > 1200 ? 3 : screenWidth > 800 ? 2 : 1;
+
+            int itemCount = 0;
+
             for (TechTree.TechNode node : nodes) {
                 UnlockableContent content = node.content;
 
@@ -114,8 +129,14 @@ public class TechTreeManager extends Mod {
                     }
                 });
 
-                table.add(rowButton).growX().height(50f).pad(2).row();
+                table.add(rowButton);
+
+                itemCount++;
+                if (itemCount % itemsPerRow == 0) {
+                    table.row();
+                }
             }
+
         }).grow();
     }
 }
