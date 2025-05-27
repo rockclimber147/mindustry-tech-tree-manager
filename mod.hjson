@@ -1,5 +1,5 @@
 #the mod name as displayed in-game
-displayName: "Java Mod Template"
+displayName: "Tech Tree Manager"
 
 #the internal name of your mod
 name: "rocklimber147-java-mod"
@@ -11,7 +11,7 @@ author: "You"
 main: "rocklimber147.TechTreeManager"
 
 #the mod description as seen in the mod dialog
-description: "A Mindustry Java mod template."
+description: "A simple UI for toggling the unlock status of tech tree nodes."
 
 #the mod version
 version: 1.0
