@@ -14,7 +14,9 @@ import mindustry.mod.*;
 import mindustry.ui.Styles;
 import mindustry.ui.dialogs.*;
 
+@SuppressWarnings("unused")
 public class TechTreeManager extends Mod {
+    @SuppressWarnings("unused")
     public TechTreeManager() {
 
         Events.on(ClientLoadEvent.class, e ->  {
