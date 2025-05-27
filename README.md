@@ -1,3 +1,19 @@
+# TechTreeManager
+
+A Mindustry mod that lets you manage and reset tech tree unlocks for Serpulo and Erekir. Built with the Java mod template.
+
+## Installation
+
+Paste this in Mindustry's "Import from URL":
+```angular2html
+https://github.com/rockclimber147/mindustry-tech-tree-manager/archive/refs/heads/main.zip
+```
+
+## Features
+
+- Toggle unlock status for each node on the tech tree through the main menu button
+
+
 # Mindustry Java Mod Template
 A Java Mindustry mod template that works on Android and PC. The Kotlin version of this mod can be seen [here](https://github.com/Anuken/MindustryKotlinModTemplate).
 
